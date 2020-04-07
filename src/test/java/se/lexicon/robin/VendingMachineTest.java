@@ -143,8 +143,10 @@ public class VendingMachineTest {
         int productNumber = 5;
         String expected = "Some how you managed to down the whole 1.5L bottle and no bathroom for 20km distance.";
         String result;
+        vendingMachine.addCurrency(100);
 
-        result = vendingMachine.getUse(productNumber);
+        Product product = vendingMachine.request(productNumber);
+        result = vendingMachine.getUse(product);
 
         Assert.assertEquals(expected,result);
     }
@@ -154,7 +156,10 @@ public class VendingMachineTest {
         int productNumber = 12;
         String expected = "Buy something first!";
         String result;
-        result = vendingMachine.getUse(productNumber);
+
+        Product product = vendingMachine.request(productNumber);
+        result = vendingMachine.getUse(product);
+
         Assert.assertEquals(expected,result);
     }
 
