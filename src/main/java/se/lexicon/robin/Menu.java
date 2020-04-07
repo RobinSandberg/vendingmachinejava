@@ -42,9 +42,14 @@ public class Menu {
                 case 5:
                     System.out.print("What product you wanna buy pick product number. : INPUT: ");
                     setBuy(IVendingMachine.getNumber());
-                    vendingMachine.request(getBuy());
+                    if(vendingMachine.request(getBuy()) == null){
+                        setBuy(-1);
+                    }else{
+                        vendingMachine.request(getBuy());
+                    }
                     break;
                 case 6:
+
                     System.out.println(vendingMachine.getUse(getBuy()));
                     break;
                 case 7:

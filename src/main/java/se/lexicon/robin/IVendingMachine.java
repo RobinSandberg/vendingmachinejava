@@ -15,16 +15,14 @@ public interface IVendingMachine {
 
     Scanner SCANNER = new Scanner(System.in);
 
-    static String getStringFromUser(){
-        return SCANNER.nextLine();
-    }
+    static String getStringFromUser(){ return SCANNER.nextLine(); }
 
     static int getNumber(){
         boolean valid = false;
         int number = 0;
         while(!valid){
             try{
-                number = Integer.parseInt(getStringFromUser().trim());
+               number = Integer.parseInt(getStringFromUser().trim());
                 valid = true;
             }catch(NumberFormatException e){
                 System.out.println("Input was not a number.");
