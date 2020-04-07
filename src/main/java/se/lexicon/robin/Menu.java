@@ -5,8 +5,7 @@ import se.lexicon.robin.products.Product;
 public class Menu {
 
     VendingMachine vendingMachine = new VendingMachine();
-    private int examine;
-    private int buy;
+    private int inputNumber;
     private Product product;
     public void menuOptions(){
         boolean running = true;
@@ -38,15 +37,15 @@ public class Menu {
                     break;
                 case 4:
                     System.out.print("What product you wanna examine pick product number. : INPUT: ");
-                    setExamine(IVendingMachine.getNumber());
-                    System.out.println(vendingMachine.getDescription(getExamine()));
+                    setInputNumber(IVendingMachine.getNumber());
+                    System.out.println(vendingMachine.getDescription(getInputNumber()));
                     break;
                 case 5:
                     System.out.print("What product you wanna buy pick product number. : INPUT: ");
-                    setBuy(IVendingMachine.getNumber());
-                    product = vendingMachine.request(getBuy());
+                    setInputNumber(IVendingMachine.getNumber());
+                    product = vendingMachine.request(getInputNumber());
                     if (product != null) {
-                        System.out.println("You bought " + product.getName());
+                        System.out.println("You bought " + product.getName() + ".");
                     }
                     break;
                 case 6:
@@ -63,18 +62,11 @@ public class Menu {
         }
     }
 
-    public int getExamine(){
-        return this.examine;
-    }
-    public void setExamine(int examine){
-        this.examine = examine;
+    public int getInputNumber(){
+        return this.inputNumber;
     }
 
-    public int getBuy(){
-        return this.buy;
-    }
-
-    public void setBuy(int buy){
-        this.buy = buy;
+    public void setInputNumber(int inputNumber){
+        this.inputNumber = inputNumber;
     }
 }
