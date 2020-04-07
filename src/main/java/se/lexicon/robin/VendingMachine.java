@@ -80,13 +80,13 @@ public class VendingMachine implements IVendingMachine{
         return tempProducts;
      }
 
-     public String getUse(int productNumber){
-         if(productNumber > 0 && productNumber <= products.length){
-             return products[productNumber-1].use();
-         }else{
-             return "Buy something first!";
-         }
-     }
+    public String getUse(Product product){
+        if(product != null){
+            return product.use();
+        }else{
+            return "Buy something first!";
+        }
+    }
 
     public static void depositsAndReturns(int money, String action) {
 

@@ -1,11 +1,13 @@
 package se.lexicon.robin;
 
+import se.lexicon.robin.products.Product;
+
 public class Menu {
 
     VendingMachine vendingMachine = new VendingMachine();
     private int examine;
     private int buy;
-
+    private Product product;
     public void menuOptions(){
         boolean running = true;
         while(running) {
@@ -42,15 +44,13 @@ public class Menu {
                 case 5:
                     System.out.print("What product you wanna buy pick product number. : INPUT: ");
                     setBuy(IVendingMachine.getNumber());
-                    if(vendingMachine.request(getBuy()) == null){
-                        setBuy(-1);
-                    }else{
-                        vendingMachine.request(getBuy());
+                    product = vendingMachine.request(getBuy());
+                    if (product != null) {
+                        System.out.println("You bought " + product.getName());
                     }
                     break;
                 case 6:
-
-                    System.out.println(vendingMachine.getUse(getBuy()));
+                    System.out.println(vendingMachine.getUse(product));
                     break;
                 case 7:
                     vendingMachine.endSession();
